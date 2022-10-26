@@ -18,10 +18,22 @@
         }
 
         // get posts
-        public function get_posts(){
+        public function read(){
 
             $query = 'SELECT * FROM posts p ORDER BY p.created_at DESC';
             
+            // prepare statement and execute query
+            $statement = $this->conn->prepare($query);
+
+            $statement->execute();
+
+            return $statement;
+        }
+
+        // show a specific post
+        public function show($id) {
+            $query = 'SELECT * FROM posts WHERE id=' . $id;
+
             // prepare statement and execute query
             $statement = $this->conn->prepare($query);
 

@@ -105,10 +105,10 @@ The API will return three error types when requests fail:
 #### GET /posts/{id}
 
 - Get a specific post based on his id
-- Return: A JSON object with a single key, data, that contains a specific post.
+- Return: A JSON object of a specific post.
 - Request Arguments: None
 
-`curl http://localhost/rest_api_php/api/posts/1`
+`curl http://localhost/rest_api_php/api/posts/show.php?id=1`
 
 ```json
 {
