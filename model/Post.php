@@ -2,7 +2,6 @@
 
     class Post {
         private $conn;
-        private $table = 'posts';
 
         // post properties
         public $id;
@@ -21,24 +20,11 @@
         // get posts
         public function get_posts(){
 
-            $query = 'SELECT
-                        c.name as category_name,
-                        p.id,
-                        p.category_id,
-                        p.title,
-                        p.body,
-                        p.author,
-                        p.created_at
-                    FROM ' . $this->table . ' p
-                    LEFT JOIN
-                        categories c ON p.category_id = c.id
-                    ORDER BY
-                        p.created_at DESC';
+            $query = 'SELECT * FROM posts p ORDER BY p.created_at DESC';
             
-            // prepare statement
+            // prepare statement and execute query
             $statement = $this->conn->prepare($query);
 
-            // execute query
             $statement->execute();
 
             return $statement;

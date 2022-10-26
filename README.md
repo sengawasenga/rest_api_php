@@ -31,7 +31,7 @@ locally.
 
 ### Getting started
 
-- Base URL: At present this app can only be run locally and is not hosted as a base URL. The backend app is hosted at the default, `http://rest_api_php/api/`; 
+- Base URL: At present this app can only be run locally and is not hosted as a base URL. The backend app is hosted at the default, `http://localhost/rest_api_php/api/`; 
 - Authentication: This version of the application does not require authentication or API keys.
 
 ### Error Handling
@@ -56,22 +56,49 @@ The API will return three error types when requests fail:
 
 - Fetches a list of posts from the database.
 - Request Arguments: None
-- Returns: A JSON object with a single key, data, that contains an array of posts.
+- Returns: a list of posts in an array of JSON objects.
 
-`curl http://rest_api_php/api/posts`
+`curl http://localhost/rest_api_php/api/posts/read.php`
 
 ```json
-{
-  "data": [
-    {
-      "id": 1,
-      "title": "Brand new title",
-      "content": "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English.",
-      "created_at": "2022-10-26T15:31:19.000000Z",
-      "updated_at": "2022-10-26T15:31:19.000000Z"
-    }
-  ]
-}
+[
+  {
+    "id": "1",
+    "title": "Technology Post One",
+    "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut interdum est nec lorem mattis interdum. Cras augue est, interdum eu consectetur et, faucibus vel turpis. Etiam pulvinar, enim quis elementum iaculis, tortor sapien eleifend eros, vitae rutrum augue quam sed leo. Vivamus fringilla, diam sit amet vestibulum vulputate, urna risus hendrerit arcu, vitae fringilla odio justo vulputate neque. Nulla a massa sed est vehicula rhoncus sit amet quis libero. Integer euismod est quis turpis hendrerit, in feugiat mauris laoreet. Vivamus nec laoreet neque. Cras condimentum aliquam nunc nec maximus. Cras facilisis eros quis leo euismod pharetra sed cursus orci.",
+    "author": "Sam Smith"
+  },
+  {
+    "id": "2",
+    "title": "Gaming Post One",
+    "content": "Adipiscing elit. Ut interdum est nec lorem mattis interdum. Cras augue est, interdum eu consectetur et, faucibus vel turpis. Etiam pulvinar, enim quis elementum iaculis, tortor sapien eleifend eros, vitae rutrum augue quam sed leo. Vivamus fringilla, diam sit amet vestibulum vulputate, urna risus hendrerit arcu, vitae fringilla odio justo vulputate neque. Nulla a massa sed est vehicula rhoncus sit amet quis libero. Integer euismod est quis turpis hendrerit, in feugiat mauris laoreet. Vivamus nec laoreet neque.",
+    "author": "Kevin Williams"
+  },
+  {
+    "id": "3",
+    "title": "Technology Post Two",
+    "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut interdum est nec lorem mattis interdum. Cras augue est, interdum eu consectetur et, faucibus vel turpis. Etiam pulvinar, enim quis elementum iaculis, tortor sapien eleifend eros, vitae rutrum augue quam sed leo. Vivamus fringilla, diam sit amet vestibulum vulputate, urna risus hendrerit arcu, vitae fringilla odio justo vulputate neque. Nulla a massa sed est vehicula rhoncus sit amet quis libero. Integer euismod est quis turpis hendrerit, in feugiat mauris laoreet. Vivamus nec laoreet neque. Cras condimentum aliquam nunc nec maximus. Cras facilisis eros quis leo euismod pharetra sed cursus orci.",
+    "author": "Sam Smith"
+  },
+  {
+    "id": "4",
+    "title": "Entertainment Post One",
+    "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut interdum est nec lorem mattis interdum. Cras augue est, interdum eu consectetur et, faucibus vel turpis. Etiam pulvinar, enim quis elementum iaculis, tortor sapien eleifend eros, vitae rutrum augue quam sed leo. Vivamus fringilla, diam sit amet vestibulum vulputate, urna risus hendrerit arcu, vitae fringilla odio justo vulputate neque. Nulla a massa sed est vehicula rhoncus sit amet quis libero. Integer euismod est quis turpis hendrerit, in feugiat mauris laoreet. Vivamus nec laoreet neque. Cras condimentum aliquam nunc nec maximus. Cras facilisis eros quis leo euismod pharetra sed cursus orci.",
+    "author": "Mary Jackson"
+  },
+  {
+    "id": "5",
+    "title": "Entertainment Post Two",
+    "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut interdum est nec lorem mattis interdum. Cras augue est, interdum eu consectetur et, faucibus vel turpis. Etiam pulvinar, enim quis elementum iaculis, tortor sapien eleifend eros, vitae rutrum augue quam sed leo. Vivamus fringilla, diam sit amet vestibulum vulputate, urna risus hendrerit arcu, vitae fringilla odio justo vulputate neque. Nulla a massa sed est vehicula rhoncus sit amet quis libero. Integer euismod est quis turpis hendrerit, in feugiat mauris laoreet. Vivamus nec laoreet neque. Cras condimentum aliquam nunc nec maximus. Cras facilisis eros quis leo euismod pharetra sed cursus orci.",
+    "author": "Mary Jackson"
+  },
+  {
+    "id": "6",
+    "title": "Technology Post Three",
+    "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut interdum est nec lorem mattis interdum. Cras augue est, interdum eu consectetur et, faucibus vel turpis. Etiam pulvinar, enim quis elementum iaculis, tortor sapien eleifend eros, vitae rutrum augue quam sed leo. Vivamus fringilla, diam sit amet vestibulum vulputate, urna risus hendrerit arcu, vitae fringilla odio justo vulputate neque. Nulla a massa sed est vehicula rhoncus sit amet quis libero. Integer euismod est quis turpis hendrerit, in feugiat mauris laoreet. Vivamus nec laoreet neque. Cras condimentum aliquam nunc nec maximus. Cras facilisis eros quis leo euismod pharetra sed cursus orci.",
+    "author": "Sam Smith"
+  }
+]
 ```
 
 
@@ -81,7 +108,7 @@ The API will return three error types when requests fail:
 - Return: A JSON object with a single key, data, that contains a specific post.
 - Request Arguments: None
 
-`curl http://rest_api_php/api/posts/1`
+`curl http://localhost/rest_api_php/api/posts/1`
 
 ```json
 {
@@ -101,7 +128,7 @@ The API will return three error types when requests fail:
 - Request Arguments: Required arguments are: 'title' and 'content'.
 - Returns a success message and the id of the new post
 
-`curl http://rest_api_php/api/posts -X POST -H "Content-Type: application/json" -d '{"title":"A new title", "content":"It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English."}'`
+`curl http://localhost/rest_api_php/api/posts -X POST -H "Content-Type: application/json" -d '{"title":"A new title", "content":"It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English."}'`
 
 ```json
 {
@@ -116,7 +143,7 @@ The API will return three error types when requests fail:
 - Request Arguments: Required arguments are: 'title' and 'content'.
 - Returns a success message and the id of the updated post
 
-`curl http://rest_api_php/api/posts/1 -X PATCH -H "Content-Type: application/json" -d '{"title":"A new title", "content":"It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English."}'`
+`curl http://localhost/rest_api_php/api/posts/1 -X PATCH -H "Content-Type: application/json" -d '{"title":"A new title", "content":"It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English."}'`
 
 ```json
 {
@@ -131,7 +158,7 @@ The API will return three error types when requests fail:
 - Request arguments: None
 - Returns a success message and the id of the deleted question
 
-`curl -X DELETE http://rest_api_php/api/posts/2`
+`curl -X DELETE http://localhost/rest_api_php/api/posts/2`
 
 ```json
 {
