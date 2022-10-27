@@ -68,4 +68,34 @@
 
             return false;
         }
+
+        // update a specific post on the database
+        public function update($id)
+        {
+            // Create query
+            $query = 'UPDATE posts SET title = :title, content = :content, author = :author WHERE id = ' . $id;
+
+            // Prepare statement
+            $statement = $this->conn->prepare($query);
+
+            // Clean data
+            $this->title = htmlspecialchars(strip_tags($this->title));
+            $this->content = htmlspecialchars(strip_tags($this->content));
+            $this->author = htmlspecialchars(strip_tags($this->author));
+
+            // Bind data
+            $statement->bindParam(':title', $this->title);
+            $statement->bindParam(':content', $this->content);
+            $statement->bindParam(':author', $this->author);
+
+            // Execute query
+            if ($statement->execute()) {
+                return true;
+            }
+
+            // Print error if something goes wrong
+            printf("Error: %s.\n", $statement->error);
+
+            return false;
+        }
     }
