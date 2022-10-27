@@ -125,15 +125,14 @@ The API will return three error types when requests fail:
 #### POST /posts
 
 - Create a brand new post
-- Request Arguments: Required arguments are: 'title' and 'content'.
+- Request Arguments: Required arguments are: 'title', 'content' and 'author'.
 - Returns a success message and the id of the new post
 
-`curl http://localhost/rest_api_php/api/posts -X POST -H "Content-Type: application/json" -d '{"title":"A new title", "content":"It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English."}'`
+`curl http://localhost/rest_api_php/api/posts/store.php -X POST -H "Content-Type: application/json" -d '{"title":"A new title", "content":"It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English.", "author":"Marcel Senga"}'`
 
 ```json
 {
-    "message": "Resource created successfully.",
-    "id": 2
+    "message": "Resource stored successfully."
 }
 ```
 
