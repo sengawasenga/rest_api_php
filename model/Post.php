@@ -98,4 +98,24 @@
 
             return false;
         }
+
+        // delete a specific post
+        public function delete($id)
+        {
+            // Create query
+            $query = 'DELETE FROM posts WHERE id='.$id;
+
+            // Prepare statement
+            $statement = $this->conn->prepare($query);
+
+            // Execute query
+            if ($statement->execute()) {
+                return true;
+            }
+
+            // Print error if something goes wrong
+            printf("Error: %s.\n", $statement->error);
+
+            return false;
+        }
     }

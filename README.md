@@ -132,7 +132,7 @@ The API will return three error types when requests fail:
 
 ```json
 {
-    "message": "Resource stored successfully."
+  "message": "Resource stored successfully."
 }
 ```
 
@@ -142,11 +142,11 @@ The API will return three error types when requests fail:
 - Request Arguments: Required arguments are: 'title' and 'content'.
 - Returns a success message and the id of the updated post
 
-`curl http://localhost/rest_api_php/api/posts/update.php?id=1 -X PATCH -H "Content-Type: application/json" -d '{"title":"Updated title", "content":"It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English.", "author":"Ruth Kabumba"}'}'`
+`curl http://localhost/rest_api_php/api/posts/update.php?id=1 -X PUT -H "Content-Type: application/json" -d '{"title":"Updated title", "content":"It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English.", "author":"Ruth Kabumba"}'}'`
 
 ```json
 {
-    "message": "Resource updated successfully."
+  "message": "Resource updated successfully."
 }
 ```
 
@@ -154,14 +154,13 @@ The API will return three error types when requests fail:
 
 - Deletes a specific post based on his id
 - Request arguments: None
-- Returns a success message and the id of the deleted question
+- Returns a success message
 
-`curl -X DELETE http://localhost/rest_api_php/api/posts/2`
+`curl -X DELETE http://localhost/rest_api_php/api/posts/delete.php?id=1`
 
 ```json
 {
-    "message": "Resource deleted successfully",
-    "id": 2
+  "message": "Resource deleted successfully"
 }
 ```
 
